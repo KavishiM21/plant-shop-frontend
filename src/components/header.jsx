@@ -1,9 +1,9 @@
-import UserData from "./userData";
+import logo from "../assets/logo_1.png";
 
 export default function Header() {
   return (
-    <header>
-      <h1>Plant Shop</h1>
+    <header className="w-full h-[100px] bg-accent">
+      <img src={logo} alt="Logo" className="w-[100px]" />
     </header>
   );
 }
