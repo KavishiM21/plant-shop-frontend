@@ -5,3 +5,16 @@
   --color-secondary: #2F2B25;
   --color-accent: #6FA85B;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Adjust width as needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent; /* Light gray track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888; /* Dark gray thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
