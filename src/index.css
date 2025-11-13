@@ -3,7 +3,9 @@
 @theme {
   --color-primary: #F6F3EE;
   --color-secondary: #2F2B25;
-  --color-accent: #6FA85B;
+  --color-accent: #6fa85b;
+  --color-green: #4e7207;
+  --color-light-green: #92bb77
 }
 
 .custom-scrollbar::-webkit-scrollbar {
