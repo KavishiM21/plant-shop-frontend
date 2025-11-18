@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader";
+import ProductDeleteButton from "../../components/productDeleteButton";
 
 export default function AdminProductPage() {
   const [products, setProducts] = useState([]);
@@ -22,16 +23,13 @@ export default function AdminProductPage() {
   }, [loaded]);
 
   return (
-    <div className="w-full h-full p-15 bg-primary flex justify-center overflow-auto custom-scrollbar">
+    <div className="w-full min-h-screen p-15 bg-primary flex justify-center overflow-auto custom-scrollbar">
       <div className="w-full max-w-[1400px] bg-white rounded-2xl shadow-xl border border-secondary/10 p-6">
-        {/* Header */}
         <div className="w-full pb-4 border-b border-secondary/20 mb-6 flex justify-between items-center">
           <h1 className="text-3xl font-bold text-secondary tracking-wide">
             Products
           </h1>
         </div>
-
-        {/* Table */}
         <div className="overflow-auto rounded-xl">
           {loaded ? (
             <table className="w-full text-left border-collapse">
@@ -93,33 +91,13 @@ export default function AdminProductPage() {
                     </td>
 
                     <td className="px-6">
-                      <span className="text-secondary/40 italic">
-                        <button
-                          onClick={() => {
-                            const token = localStorage.getItem("token");
-                            axios
-                              .delete(
-                                import.meta.env.VITE_BACKEND_URL +
-                                  "/products/" +
-                                  item.productID,
-                                {
-                                  headers: {
-                                    Authorization: `Bearer ${token}`,
-                                  },
-                                },
-                              )
-                              .then(() => {
-                                toast.success("Product deleted successfully");
-                                setLoaded(false);
-                              })
-                              .catch(() => {
-                                toast.error("Failed to delete product");
-                              });
+                      <span className="text-secondary/40">
+                        <ProductDeleteButton
+                          productID={item.productID}
+                          reload={() => {
+                            setLoaded(false);
                           }}
-                          className="w-[100px] bg-red-500 flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-red-700"
-                        >
-                          Delete
-                        </button>
+                        />
                       </span>
                     </td>
                   </tr>
@@ -131,8 +109,6 @@ export default function AdminProductPage() {
           )}
         </div>
       </div>
-
-      {/* Floating Add Button */}
       <Link
         to="/admin/add-product"
         className="fixed right-10 bottom-10 w-[65px] h-[65px] flex justify-center items-center rounded-full shadow-xl bg-accent text-primary hover:bg-green transition-all border-2 border-accent hover:border-green hover:shadow-2xl hover:scale-110"
