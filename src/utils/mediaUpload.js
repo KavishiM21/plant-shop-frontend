@@ -13,9 +13,8 @@ export default function uploadFile(file) {
       .from("images")
       .upload(fileName, file, { cacheControl: "3600", upsert: false })
       .then(() => {
-        const publicUrl = supabase.storage
-          .from("images")
-          .getPublicUrl(file.name).data.publicUrl;
+        const publicUrl = supabase.storage.from("images").getPublicUrl(fileName)
+          .data.publicUrl;
         resolve(publicUrl);
       })
       .catch((error) => {

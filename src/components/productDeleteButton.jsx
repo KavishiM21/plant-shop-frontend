@@ -36,7 +36,7 @@ export default function ProductDeleteButton(props) {
         onClick={() => {
           setIsMessageOpen(true);
         }}
-        className="w-[100px] bg-red-500 flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-red-700"
+        className="w-[70px] bg-red-500 flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-red-700"
       >
         Delete
       </button>
@@ -63,7 +63,7 @@ export default function ProductDeleteButton(props) {
                 onClick={handleDelete}
                 className="bg-red-600 text-primary px-4 py-2 rounded-xl cursor-pointer hover:bg-red-800 transition"
               >
-                {isDeleting ? "Deleting..." : "Delete"}
+                Delete
               </button>
 
               <button

@@ -1,14 +1,14 @@
 import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import Loader from "../../components/loader";
 import ProductDeleteButton from "../../components/productDeleteButton";
 
 export default function AdminProductPage() {
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!loaded) {
@@ -50,10 +50,8 @@ export default function AdminProductPage() {
               <tbody>
                 {products.map((item, index) => (
                   <tr
-                    key={item.productID}
-                    className={`h-[70px] text-secondary text-[15px] ${
-                      index % 2 === 0 ? "bg-primary" : "bg-primary/10"
-                    } hover:bg-light-green/20 transition-all`}
+                    key={index}
+                    className="h-[70px] text-secondary text-[15px] bg-primary bg-primary/10 hover:bg-light-green/20 transition-all"
                   >
                     <td className="px-6 font-semibold">{item.productID}</td>
 
@@ -82,23 +80,30 @@ export default function AdminProductPage() {
                       <span
                         className={`px-3 py-1 rounded-full text-sm font-semibold ${
                           item.isAvailable
-                            ? "bg-green/20 text-green border border-green/40"
-                            : "bg-secondary/10 text-secondary border border-secondary/40"
+                            ? "bg-green-100 text-green-700 border border-green-600"
+                            : "bg-red-100 text-red-700 border border-red-600"
                         }`}
                       >
-                        {item.isAvailable}
+                        {item.isAvailable ? "Available" : "Unavailable"}
                       </span>
                     </td>
 
                     <td className="px-6">
-                      <span className="text-secondary/40">
+                      <div className="inline-flex items-center gap-2">
+                        <Link
+                          to="/admin/update-product"
+                          className="w-[70px] bg-accent flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-green"
+                          state={item}
+                        >
+                          Edit
+                        </Link>
                         <ProductDeleteButton
                           productID={item.productID}
                           reload={() => {
                             setLoaded(false);
                           }}
                         />
-                      </span>
+                      </div>
                     </td>
                   </tr>
                 ))}
