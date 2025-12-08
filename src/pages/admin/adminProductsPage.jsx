@@ -32,18 +32,18 @@ export default function AdminProductPage() {
         </div>
         <div className="overflow-auto rounded-xl">
           {loaded ? (
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-center border-collapse">
               <thead>
                 <tr className="bg-secondary text-primary h-[60px] text-sm tracking-wide uppercase">
-                  <th className="px-6">Product ID</th>
-                  <th className="px-6">Image</th>
-                  <th className="px-6">Name</th>
-                  <th className="px-6">Price</th>
-                  <th className="px-6">Labelled Price</th>
-                  <th className="px-6">Category</th>
-                  <th className="px-6">Stock</th>
-                  <th className="px-6">Availability</th>
-                  <th className="px-6">Actions</th>
+                  <th className="px-5">Product ID</th>
+                  <th className="px-7">Image</th>
+                  <th className="px-5">Name</th>
+                  <th className="px-5">Price</th>
+                  <th className="px-5">Labelled Price</th>
+                  <th className="px-5">Category</th>
+                  <th className="px-5">Stock</th>
+                  <th className="px-5">Availability</th>
+                  <th className="px-5">Actions</th>
                 </tr>
               </thead>
 
@@ -58,17 +58,17 @@ export default function AdminProductPage() {
                     <td className="px-6">
                       <img
                         src={item.images[0]}
-                        className="w-[50px] h-[50px] rounded-lg shadow-md object-cover border border-secondary/10"
+                        className="w-[55px] h-[55px] rounded-lg shadow-md object-cover border border-secondary/10"
                       />
                     </td>
 
                     <td className="px-6">{item.name}</td>
 
-                    <td className="px-6 font-semibold text-green">
+                    <td className="px-6 font-semibold text-green-600">
                       Rs. {item.price}
                     </td>
 
-                    <td className="px-6 text-secondary/70 line-through">
+                    <td className="px-6 text-secondary line-through">
                       Rs. {item.labelledPrice}
                     </td>
 
@@ -89,10 +89,10 @@ export default function AdminProductPage() {
                     </td>
 
                     <td className="px-6">
-                      <div className="inline-flex items-center gap-2">
+                      <div className="inline-flex items-center gap-1">
                         <Link
                           to="/admin/update-product"
-                          className="w-[70px] bg-accent flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-green"
+                          className="w-[60px] bg-accent flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-green"
                           state={item}
                         >
                           Edit
