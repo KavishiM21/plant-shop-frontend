@@ -65,11 +65,11 @@ export default function AdminProductPage() {
                     <td className="px-6">{item.name}</td>
 
                     <td className="px-6 font-semibold text-green-600">
-                      Rs. {item.price}
+                      LKR. {item.price}
                     </td>
 
                     <td className="px-6 text-secondary line-through">
-                      Rs. {item.labelledPrice}
+                      LKR. {item.labelledPrice}
                     </td>
 
                     <td className="px-6">{item.category}</td>
@@ -87,7 +87,6 @@ export default function AdminProductPage() {
                         {item.isAvailable ? "Available" : "Unavailable"}
                       </span>
                     </td>
-
                     <td className="px-6">
                       <div className="inline-flex items-center gap-1">
                         <Link

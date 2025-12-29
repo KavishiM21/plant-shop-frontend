@@ -20,3 +20,7 @@
   background-color: #888; /* Dark gray thumb */
   border-radius: 4px; /* Rounded corners for the thumb */
 }
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 3000s ease-in-out 0s;
+}

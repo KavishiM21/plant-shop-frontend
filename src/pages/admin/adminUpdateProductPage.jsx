@@ -205,7 +205,7 @@ export default function AdminUpdateProductPage() {
             <label>Available</label>
             <select
               value={isAvailable}
-              onChange={(e) => setIsAvailable(e.target.value === "true")}
+              onChange={(e) => setIsAvailable(e.target.value)}
               className="w-full h-[40px] rounded-2xl border border-accent px-[20px]"
             >
               <option value="true">Yes</option>

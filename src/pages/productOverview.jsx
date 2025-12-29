@@ -36,12 +36,17 @@ export default function ProductOverview() {
         <h1 className="text-center mt-10 text-2xl" Error loading product></h1>
       )}
       {status == "Success" && (
-        <div className="w-full h-[calc(100vh-100px)] flex bg-primary ">
-          <div className="w-1/2 h-full flex justify-center items-center">
+        <div className="w-full h-[calc(100vh-100px)] flex flex-col md:flex-row bg-primary ">
+          <h1 className="text-4xl font-semibold lg:hidden text-center sticky top-0 bg-white pb-6">
+            {product.name}
+          </h1>
+          <div className="md:w-1/2 w-full h-full flex justify-center items-center">
             <ImageSlider images={product.images} />
           </div>
-          <div className="w-1/2 h-full p-10 flex flex-col gap-6">
-            <h1 className="text-4xl font-semibold">{product.name}</h1>
+          <div className="md:w-1/2 w-full h-full p-10 flex flex-col gap-6">
+            <h1 className="text-4xl font-semibold hidden md:block">
+              {product.name}
+            </h1>
             <h2 className="text-xl font-medium text-secondary/60">
               {product.productID}
             </h2>
