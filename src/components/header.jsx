@@ -20,6 +20,7 @@ export default function Header() {
         <Link to="/products">Products</Link>
         <Link to="/about">About</Link>
         <Link to="/contacts">Contact</Link>
+        <Link to="/reviews">Reviews</Link>
       </div>
       <div className="absolute right-30 top-0 h-full items-center hidden md:flex">
         <UserData />
@@ -27,7 +28,7 @@ export default function Header() {
 
       <Link
         to="/cart"
-        className="absolute right-4 top-1 bottom-9 translate-y-1/2 text-primary text-3xl mr-5"
+        className="absolute right-4 top-1 bottom-9 translate-y-1/2 text-primary text-3xl mr-3"
       >
         <BiShoppingBag />
       </Link>

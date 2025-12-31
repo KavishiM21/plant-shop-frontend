@@ -32,7 +32,7 @@ export default function AdminProductPage() {
         </div>
         <div className="overflow-auto rounded-xl">
           {loaded ? (
-            <table className="w-full text-center border-collapse">
+            <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-secondary text-primary h-[60px] text-sm tracking-wide uppercase">
                   <th className="px-5">Product ID</th>
@@ -91,7 +91,7 @@ export default function AdminProductPage() {
                       <div className="inline-flex items-center gap-1">
                         <Link
                           to="/admin/update-product"
-                          className="w-[60px] bg-accent flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-green"
+                          className="w-[60px] bg-accent flex justify-center items-center text-primary p-2 rounded-xl cursor-pointer hover:bg-green-600"
                           state={item}
                         >
                           Edit

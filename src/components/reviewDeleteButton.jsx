@@ -2,9 +2,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-export default function ProductDeleteButton(props) {
-  const productID = props.productID;
-  const reload = props.reload;
+export default function ReviewDeleteButton({ reviewId, reload }) {
   const [isMessageOpen, setIsMessageOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -13,19 +11,20 @@ export default function ProductDeleteButton(props) {
     const token = localStorage.getItem("token");
 
     axios
-      .delete(import.meta.env.VITE_BACKEND_URL + "/products/" + productID, {
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/reviews/${reviewId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then(() => {
-        toast.success("Product deleted successfully");
+        toast.success("Review deleted successfully");
         setIsDeleting(false);
         setIsMessageOpen(false);
-        reload();
+        reload(); // Re-fetches the list in the parent component
       })
-      .catch(() => {
-        toast.error("Failed to delete product");
+      .catch((err) => {
+        toast.error("Failed to delete review");
+        console.error(err);
         setIsDeleting(false);
       });
   }
@@ -50,8 +49,8 @@ export default function ProductDeleteButton(props) {
             </button>
 
             <h1 className="text-2xl mb-6 text-secondary text-center px-4">
-              Are you sure, want to delete this product <br />
-              <span className="font-mono text-red-500">{productID}</span>?
+              Are you sure you want to delete review <br />
+              <span className="font-mono text-red-500">{reviewId}</span>?
             </h1>
 
             <div className="w-full flex justify-center gap-10">

@@ -26,10 +26,10 @@ export default function UserData() {
   return (
     <>
       {user ? (
-        <div className="w-[150px] flex flex-row">
+        <div className="w-[100px] flex flex-row">
           <img
             src={user.image}
-            referrerpolicy="no-referrer"
+            referrerPolicy="no-referrer"
             className="w-[50px] rounded-full h-[50px]"
           />
           <select
